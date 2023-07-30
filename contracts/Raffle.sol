@@ -94,7 +94,6 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
     )
         public
         view
-        override
         returns (
             bool upkeepNeeded,
             bytes memory /* performData */
@@ -114,7 +113,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
      */
     function performUpkeep(
         bytes calldata /* performData */
-    ) external override {
+    ) external {
         (bool upkeepNeeded, ) = checkUpkeep("");
         // require(upkeepNeeded, "Upkeep not needed");
         if (!upkeepNeeded) {
